@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import ItemListContainer from './components/ItemListContainer.jsx';
 import  NavBar from './components/NavBar.jsx';
 
 
 function App() {
   return (
+    <>
         <NavBar />
+        <ItemListContainer greeting={'Buenas Tardes'} />
+    </> 
   );
 }
 

@@ -1,0 +1,17 @@
+.cart_logo {
+    color: white;
+    font-size: 35px;
+    width: 30px;
+    margin: 15px;
+}
+
+.cart_logo:hover{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.623);
+}
+
+.contador_carrito {
+    color: white;
+    font-size: 25px;
+    margin-right: 20px;
+}
