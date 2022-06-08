@@ -15,7 +15,13 @@ export default function ItemCount({initial,  stock, onAdd}) {
         setCount(initial);
     }
 
+    const handlerEvent = () => {
 
+        onAdd(count)
+        setCount(initial)
+        reinicio()
+        }
+        
 
     return (
     <div className='container fluid'>
@@ -28,7 +34,7 @@ export default function ItemCount({initial,  stock, onAdd}) {
             <span className='h3 m-3'id='contador'>{count}</span>
             <button className='btn btn-secondary' onClick={sumar}>+</button>
         </div>
-        <button className='btn btn-primary mt-1' onClick={() => {onAdd(count); reinicio() }}>Agregar al carrito</button>
+        <button className='btn btn-primary mt-1' onClick={handlerEvent}>Agregar al carrito</button>
     </div>
   )
 }
