@@ -1,4 +1,5 @@
 import ItemCount from './components/ItemCount.jsx';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx';
 import NavBar from './components/NavBar.jsx';
 
@@ -13,6 +14,7 @@ function App() {
     <>
         <NavBar />
         <ItemListContainer />
+        <ItemDetailContainer />
         {/* <ItemCount initial={1} stock={9} onAdd ={onAdd}/> */}
     </> 
   );
