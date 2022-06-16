@@ -1,0 +1,25 @@
+#cardDetail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #343a40;
+}
+
+#CarouselItemDetail {
+    width: 35rem;
+    margin-right: 7px;
+    
+}
+
+#CarouselItemDetail img {
+    border-radius: 10px;
+}
+
+#cardDetail {
+    align-items:flex-start;
+    margin-top: 60px;
+}
+
+#cardText {
+    width: 30rem;
+}

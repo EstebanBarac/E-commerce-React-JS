@@ -1,7 +1,7 @@
-import ItemCount from './components/ItemCount.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx';
-import NavBar from './components/NavBar.jsx';
+import NavBar from './components/NavBar/NavBar.jsx';
 
 
 function App() {
@@ -12,10 +12,14 @@ function App() {
 
   return (
     <>
-        <NavBar />
-        <ItemListContainer />
-        <ItemDetailContainer />
-        {/* <ItemCount initial={1} stock={9} onAdd ={onAdd}/> */}
+    <BrowserRouter>
+      <NavBar />
+        <Routes>
+        <Route path='/' element={<ItemListContainer />} />  
+          <Route path='/category/:id' element={<ItemListContainer />} />  
+          <Route path='/item/:id' element={<ItemDetailContainer />} /> 
+        </Routes>
+    </BrowserRouter>
     </> 
   );
 }

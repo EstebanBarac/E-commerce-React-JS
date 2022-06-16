@@ -1,25 +1,45 @@
-import { Button, Card } from "react-bootstrap";
+import {Card, Carousel, Button} from 'react-bootstrap';
+import './ItemDetail.css'
 
-const ItemDetail = ({ nombre, descripcion, img, price }) => {
+
+export default function ItemDetail ({ autos }) {
     return (
-        <>
-        {
-        <Card style={{ width: '30rem' }} className='bg-dark' id='cardsAutos'>
-          <Card.Img variant="top" src={img} />
-          <Card.Body>
-            <Card.Title>
-            <h3>{nombre}</h3>
-              </Card.Title>
-                <Card.Text> 
-                    <p>{descripcion}</p>
-                    <h4> usd ${price} (por dia)</h4>
-                <Button variant="warning">ALQUILER</Button>
-            </Card.Text>
-          </Card.Body>
-        </Card> 
-        }
-        </>
-    );
-  };
-  
-  export default ItemDetail;
+<>
+    <div id='cardDetail'>
+                <Carousel id='CarouselItemDetail'>
+        <Carousel.Item>
+            <img
+            className="d-block w-100"
+            src={autos.imgURL1}
+            alt="First slide"/>
+        </Carousel.Item>
+        <Carousel.Item>
+            <img
+            className="d-block w-100"
+            src={autos.imgURL2}
+            alt="Second slide"/>
+
+        </Carousel.Item>
+        <Carousel.Item>
+            <img
+            className="d-block w-100"
+            src={autos.imgURL3}
+            alt="Third slide"/>
+        </Carousel.Item>
+        </Carousel>
+        <Card className='bg-dark text-white m-3' id='cardDetail'>
+            <Card.Header><h3>{autos.nombre}</h3></Card.Header>
+                <Card.Body>
+                        <Card.Text id='cardText'>
+                            <span>{autos.descripcion}</span><br/><br/>
+                            <span className='h6'>Color: {autos.color}</span><br/>
+                            <span className='h5'>Precio: Usd $ {autos.precio} (cada 24hs)</span><br/>
+                        </Card.Text>
+                    <Button className='btn btn-warning'>Reservar</Button>
+                </Card.Body>
+        </Card>
+    </div>
+</>
+
+    )
+}
