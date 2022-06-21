@@ -1,9 +1,21 @@
 import {Card, Carousel, Button} from 'react-bootstrap';
+import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 export default function ItemDetail ({ autos }) {
-    return (
+    
+    const [unidades, setUnidades] = useState();
+    
+    function onAdd(count){
+        alert(`Se sumaron ${count} dias`);
+        setUnidades(count)
+      }
+   
+   
+   return (
 <>
     <div id='cardDetail'>
                 <Carousel id='CarouselItemDetail'>
@@ -35,7 +47,10 @@ export default function ItemDetail ({ autos }) {
                             <span className='h6'>Color: {autos.color}</span><br/>
                             <span className='h5'>Precio: Usd $ {autos.precio} (cada 24hs)</span><br/>
                         </Card.Text>
-                    <Button className='btn btn-warning'>Reservar</Button>
+                    
+                    {unidades > 0 ? <Link to='/cart' className="btn btn-warning">Proceder al pago</Link>:<ItemCount onAdd={onAdd} stock={autos.stock} initial={1}/>}
+
+                     {/* <ItemCount onAdd={onAdd} stock={autos.stock} initial={1}/>  */}
                 </Card.Body>
         </Card>
     </div>
