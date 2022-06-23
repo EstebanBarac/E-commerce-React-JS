@@ -23,7 +23,7 @@ function NavBar(){
             </Nav>
             </Navbar.Collapse>
 
-            <CartWidget items={3}/> 
+            <CartWidget /> 
 
         </Navbar>
     </>

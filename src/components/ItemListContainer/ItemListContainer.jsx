@@ -23,7 +23,7 @@ let productosMock = [
 
 export default function ItemListContainer() {
   
-  const{id} = useParams(); 
+  const{idCat} = useParams(); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [resultado, setResultado] = useState([]);
@@ -36,7 +36,7 @@ export default function ItemListContainer() {
       
     setTimeout(() => {
 
-      (!id) ? res(productosMock) : res(productosMock.filter(item => item.category==id));
+      (!idCat) ? res(productosMock) : res(productosMock.filter(item => item.category==idCat));
     }, 500);
   });
 
@@ -52,7 +52,7 @@ export default function ItemListContainer() {
     setLoading(false);
   });   
 
-}, [id]);
+}, [idCat]);
 
 console.log(resultado);
   

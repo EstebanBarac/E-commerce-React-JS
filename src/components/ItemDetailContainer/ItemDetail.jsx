@@ -2,18 +2,26 @@ import {Card, Carousel, Button} from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 
 export default function ItemDetail ({ autos }) {
     
-    const [unidades, setUnidades] = useState();
+    const [qty, setQty] = useState(1);
+
+    const {isInCart, addItem} = useContext(CartContext)
     
-    function onAdd(count){
-        alert(`Se sumaron ${count} dias`);
-        setUnidades(count)
+    const  onAdd = () => {
+        alert(`Se sumaron ${qty} dias`);
+        isInCart(autos.id)
+        addItem(autos, qty)
+        reinicio();
       }
-   
+
+     function reinicio() {
+        setQty(1);
+     }
    
    return (
 <>
@@ -47,10 +55,8 @@ export default function ItemDetail ({ autos }) {
                             <span className='h6'>Color: {autos.color}</span><br/>
                             <span className='h5'>Precio: Usd $ {autos.precio} (cada 24hs)</span><br/>
                         </Card.Text>
-                    
-                    {unidades > 0 ? <Link to='/cart' className="btn btn-warning">Proceder al pago</Link>:<ItemCount onAdd={onAdd} stock={autos.stock} initial={1}/>}
-
-                     {/* <ItemCount onAdd={onAdd} stock={autos.stock} initial={1}/>  */}
+                    <ItemCount qty={qty} setQty={setQty} stock={autos.stock} onAdd={onAdd} />
+                    {/* {qty > 0 ? <Link to='/cart' className="btn btn-warning">Proceder al pago</Link>:<ItemCount onAdd={onAdd} stock={autos.stock} initial={1}/>} */}
                 </Card.Body>
         </Card>
     </div>

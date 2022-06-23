@@ -1,27 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function ItemCount({initial,  stock, onAdd}) {
-    const[count, setCount] = useState(initial)
 
+export default function ItemCount({ qty, setQty, stock, onAdd}) {
+    
     const sumar = () => {
-        count < stock ? setCount(count + 1) : alert('No puedes agregar mas')     
+        qty < stock ? setQty(qty + 1) : alert('No puedes agregar mas')     
     }
 
     const restar = () => {
-        count > initial ? setCount(count - 1) : alert('no puedes poner menos')
+        qty > 1 ? setQty(qty - 1) : alert('no puedes poner menos')
     }
-
-    const reinicio = () => {
-        setCount(initial);
-    }
-
-    const handlerEvent = () => {
-
-        onAdd(count)
-        setCount(initial)
-        reinicio()
-        }
-        
 
     return (
     <div className='container fluid' id='Contador'>
@@ -30,10 +18,10 @@ export default function ItemCount({initial,  stock, onAdd}) {
         </div>
         <div>
             <button className='btn btn-secondary' onClick={restar}>-</button>
-            <span className='h3 m-3'id='contador'>{count}</span>
+            <span className='h3 m-3'id='contador'>{qty}</span>
             <button className='btn btn-secondary' onClick={sumar}>+</button>
         </div>
-        <button className='btn btn-warning mt-1' onClick={handlerEvent}>Reservar</button>
+        <button className='btn btn-warning mt-1' onClick={() => {onAdd()}}>Reservar</button>
     </div>
   )
 }
