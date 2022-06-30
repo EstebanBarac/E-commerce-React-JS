@@ -12,16 +12,17 @@ export default function ItemCount({ qty, setQty, stock, onAdd}) {
     }
 
     return (
-    <div className='container fluid' id='Contador'>
+    <div className='grid row' id='ItemCount'>
         <div> 
             <h6>Maximo de dias: {stock}</h6>
         </div>
         <div>
-            <button className='btn btn-secondary' onClick={restar}>-</button>
-            <span className='h3 m-3'id='contador'>{qty}</span>
-            <button className='btn btn-secondary' onClick={sumar}>+</button>
+            <button className='btn btn-secondary m-3' onClick={restar}>-</button>
+            <span id='spanNumero'>{qty}</span>
+            <button className='btn btn-secondary m-3' onClick={sumar}>+</button>
+            <button className='btn btn-warning' onClick={() => {onAdd()}} id='btnReservar'>Reservar</button>
         </div>
-        <button className='btn btn-warning mt-1' onClick={() => {onAdd()}}>Reservar</button>
+        
     </div>
   )
 }

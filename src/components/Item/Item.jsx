@@ -9,7 +9,7 @@ export default function Item({ autos }) {
     return (
         <>
         <Card style={{ width: '22rem' }} className='bg-dark' id='cardsAutos'>
-            <Card.Img variant='top' src={imgURL} id='imgCards'/>
+            <Card.Img variant='top' src={autos.imgURL1} id='imgCards'/>
             <Card.Body>
                 <Card.Title><h4>{nombre}</h4></Card.Title>
                 <Card.Text>

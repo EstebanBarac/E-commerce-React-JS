@@ -21,10 +21,8 @@ function NavBar(){
                     <Link to="/category/suv" className='btn btn-outline-warning' id='Links'>Suv</Link>
                 </div>
             </Nav>
-            </Navbar.Collapse>
-
-            <CartWidget /> 
-
+            </Navbar.Collapse> 
+          <CartWidget /> 
         </Navbar>
     </>
     );

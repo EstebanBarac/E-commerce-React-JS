@@ -1,25 +1,18 @@
-#cardDetail {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #343a40;
-}
+@media (min-width: 1200px) {
+    #cardDetail {
+        display: grid;
+        width: 45rem;
+        justify-content: center;
+    }
+    #CarouselItemDetail{
+        align-items: center;
+        width: 45rem;
+    }
 
-#CarouselItemDetail {
-    width: 35rem;
-    margin-right: 7px;
-    
-}
-
-#CarouselItemDetail img {
-    border-radius: 10px;
-}
-
-#cardDetail {
-    align-items:flex-start;
-    margin-top: 60px;
-}
-
-#cardText {
-    width: 30rem;
-}
+    #Contador {
+        display: grid;
+        justify-content: center;
+        margin-top: 1rem;
+        grid-template-columns: 1fr;
+    }
+  }

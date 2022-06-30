@@ -47,15 +47,18 @@ export default function ItemDetail ({ autos }) {
             alt="Third slide"/>
         </Carousel.Item>
         </Carousel>
-        <Card className='bg-dark text-white m-3' id='cardDetail'>
+        <Card className='bg-dark text-white' id='cardDetail'>
             <Card.Header><h3>{autos.nombre}</h3></Card.Header>
-                <Card.Body>
+                <Card.Body id='CardBody'>
                         <Card.Text id='cardText'>
                             <span>{autos.descripcion}</span><br/><br/>
-                            <span className='h6'>Color: {autos.color}</span><br/>
-                            <span className='h5'>Precio: Usd $ {autos.precio} (cada 24hs)</span><br/>
+                            <span>Color: {autos.color}</span><br/>
+                            <span className='h6'>Precio: Usd $ {autos.precio} (cada 24hs)</span><br/>
+                            <div id='Contador'>
+                                <ItemCount qty={qty} setQty={setQty} stock={autos.stock} onAdd={onAdd} />
+                            </div>
                         </Card.Text>
-                    <ItemCount qty={qty} setQty={setQty} stock={autos.stock} onAdd={onAdd} />
+                    
                     {/* {qty > 0 ? <Link to='/cart' className="btn btn-warning">Proceder al pago</Link>:<ItemCount onAdd={onAdd} stock={autos.stock} initial={1}/>} */}
                 </Card.Body>
         </Card>
