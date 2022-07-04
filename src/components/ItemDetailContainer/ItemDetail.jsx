@@ -1,19 +1,28 @@
 import {Card, Carousel, Button} from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
-import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import {toast, ToastContainer} from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 
 export default function ItemDetail ({ autos }) {
     
     const [qty, setQty] = useState(1);
 
-    const {isInCart, addItem} = useContext(CartContext)
+    const {isInCart, addItem, getItemQty} = useContext(CartContext)
     
     const  onAdd = () => {
-        alert(`Se sumaron ${qty} dias`);
+            toast.success('Su pedido se añadio al carrito', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
         isInCart(autos.id)
         addItem(autos, qty)
         reinicio();
@@ -25,6 +34,16 @@ export default function ItemDetail ({ autos }) {
    
    return (
 <>
+<ToastContainer position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover/>
+
     <div id='cardDetail'>
                 <Carousel id='CarouselItemDetail'>
         <Carousel.Item>
@@ -58,8 +77,6 @@ export default function ItemDetail ({ autos }) {
                                 <ItemCount qty={qty} setQty={setQty} stock={autos.stock} onAdd={onAdd} />
                             </div>
                         </Card.Text>
-                    
-                    {/* {qty > 0 ? <Link to='/cart' className="btn btn-warning">Proceder al pago</Link>:<ItemCount onAdd={onAdd} stock={autos.stock} initial={1}/>} */}
                 </Card.Body>
         </Card>
     </div>
