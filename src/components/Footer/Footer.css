@@ -1,0 +1,10 @@
+#footer{
+    display: flex;
+    color: white;
+    width: 100%;
+    justify-content: center;
+}
+
+.footertxt {
+    margin: 50px;
+}

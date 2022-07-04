@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/NavBar.jsx';
 import CartProvider  from './context/CartContext.jsx';
 import { initializeApp } from "firebase/app";
 import Checkout from './components/Checkout/Checkout.jsx';
-import PagoTerminado from './components/Checkout/PagoTerminado.jsx';
+import Footer from './components/Footer/Footer.jsx';
 
 
 function App() {
@@ -33,8 +33,8 @@ function App() {
             <Route path='/item/:idProd' element={<ItemDetailContainer />} /> 
             <Route path='/cart' element={<Cart />} /> 
             <Route path='/checkout' element={<Checkout />} />
-            <Route path='/pagoterminado' element={<PagoTerminado />} />
           </Routes>
+        <Footer />  
       </CartProvider>    
     </BrowserRouter>
     </> 

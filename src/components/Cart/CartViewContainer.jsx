@@ -3,6 +3,7 @@ import CartView from './CartView'
 import {useContext} from 'react';
 import {CartContext} from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import './Cart.css'
 
 export default function CartViewContainer() {
 
@@ -10,12 +11,12 @@ export default function CartViewContainer() {
   
     return (
         <>
-    <section className="h-100" style={{backgroundColor: '#495057'}}>
-    <div className="container h-100 py-5">  
-      <div className="row d-flex justify-content-center align-items-center h-100">
+        <div id='cart'>
+    <div className="container py-5">  
+      <div className="row d-flex justify-content-center align-items-center">
         <div className="col-10"> 
-        <button type="button" className="btn btn-outline-danger m-3 float-end" onClick={emptyCart}> Vaciar todo el carrito</button>
-        <Link to='/'><button type="button" className="btn btn-outline-warning m-3">Seguir comprando</button></Link>
+        <button type="button" className="btn btn-outline-danger m-3 float-end" onClick={emptyCart}> Vaciar carrito</button>
+        <Link to='/'><button type="button" className="btn btn-outline-warning m-3">Agregar mas</button></Link>
              {
               cart.map( item => (
                 <CartView key={item.id} item={item} />
@@ -39,8 +40,7 @@ export default function CartViewContainer() {
         </div>
       </div>
     </div>
-  </section>
-
+    </div>
   
   </>
   )

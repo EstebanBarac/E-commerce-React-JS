@@ -1,7 +1,9 @@
 import React from 'react'
+import {useContext} from 'react';
+import {CartContext} from '../../context/CartContext';
 
 
-export default function CartView({ item }) {
+export default function CartView({ item }) {  
 
   return (
     <>

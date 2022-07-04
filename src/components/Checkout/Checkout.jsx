@@ -6,6 +6,7 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './Checkout.css';
 
 
 export default function Checkout() {
@@ -82,9 +83,9 @@ export default function Checkout() {
                         pauseOnHover/>
 
 			{!orderId ? (
-				<div>
-					<div className='mt-3 '>
-						<h5 className='text-center text-warning'>
+				<div className='formCheckout'>
+					<div>
+						<h5 className='text-center text-white'>
 							Para dar seguimiento a su compra, por favor, ingresar los datos
 							abajo:
 						</h5>
@@ -92,7 +93,7 @@ export default function Checkout() {
 					<div className='formulario container d-flex justify-content-center align-items-center pt-5'>
 						<form>
 							<div className='mb-1'>
-								<label className='form-label text-warning'>Nombre</label>
+								<label className='form-label text-white'>Nombre</label>
 								<input
 									onChange={(e) => setName(e.target.value)}
 									placeholder='Ingrese su nombre'
@@ -101,7 +102,7 @@ export default function Checkout() {
 								/>
 							</div>
 							<div className='mb-1'>
-								<label className='form-label text-warning'>Telefono</label>
+								<label className='form-label text-white'>Telefono</label>
 								<input
 									onChange={(e) => setPhone(e.target.value)}
 									placeholder='Ingrese su telefono'
@@ -110,7 +111,7 @@ export default function Checkout() {
 								/>
 							</div>
 							<div className='mb-3'>
-								<label className='form-label text-warning'>Email</label>
+								<label className='form-label text-white'>Email</label>
 								<input
 									onChange={(e) => setEmail(e.target.value)}
 									placeholder='Ingrese su email'

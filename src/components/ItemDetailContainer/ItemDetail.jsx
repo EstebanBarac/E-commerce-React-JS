@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom';
 export default function ItemDetail ({ autos }) {
     
     const [qty, setQty] = useState(1);
-
-    const {isInCart, addItem, getItemQty} = useContext(CartContext)
+    const [mostrarCounter, setMostrarCounter] = useState(true)
+    const { isInCart, addItem } = useContext(CartContext)
     
     const  onAdd = () => {
-            toast.success('Su pedido se añadio al carrito', {
+        toast.success('Su pedido se añadio al carrito', {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -23,6 +23,7 @@ export default function ItemDetail ({ autos }) {
             draggable: true,
             progress: undefined,
             });
+        setMostrarCounter(false)
         isInCart(autos.id)
         addItem(autos, qty)
         reinicio();
@@ -74,7 +75,13 @@ export default function ItemDetail ({ autos }) {
                             <span>Color: {autos.color}</span><br/>
                             <span className='h6'>Precio: Usd $ {autos.precio} (cada 24hs)</span><br/>
                             <div id='Contador'>
-                                <ItemCount qty={qty} setQty={setQty} stock={autos.stock} onAdd={onAdd} />
+                               { mostrarCounter ? <ItemCount qty={qty} setQty={setQty} stock={autos.stock} onAdd={onAdd} />
+                               :
+                               <div>
+                                    <Link className="btn btn-outline-warning" to='/'>Seguir Comprando</Link>
+                                    <Link className="btn btn-warning mx-3" to='/cart'>Ir al carrito</Link>
+                                </div>
+                               }
                             </div>
                         </Card.Text>
                 </Card.Body>

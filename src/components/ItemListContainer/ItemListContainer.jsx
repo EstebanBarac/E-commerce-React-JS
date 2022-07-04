@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { ClipLoader } from 'react-spinners';
+import './ItemListContainer.css';
 
 export default function ItemListContainer() {
   
@@ -40,13 +42,20 @@ export default function ItemListContainer() {
   }
  }, [idCat]);
 
+ const override = {
+  display: "block",
+  margin: "0 auto",
+  justifyContent: "center",
+  position: "relative",
+};
+
 
   
 return (<>
-  <div id='loading'>{loading && 'Loading...'}</div>
-  <div>{error && 'Hubo un error inesperado'}</div>
-  <div>
-      <ItemList autos={resultado} />
+  <div id='loading'>
+      <div id="loader">
+        {loading ? <ClipLoader color={'#F8E71C'} loading={loading} cssOverride={override} size={250} /> : <ItemList autos={resultado} />}
+      </div>  
   </div>
   </>
 )
