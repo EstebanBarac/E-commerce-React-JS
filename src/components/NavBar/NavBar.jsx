@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar } from 'react-bootstrap';
-import logo from '../../logo.svg';
+import logo from '../../Logo.png';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import './NavBar.css'
@@ -9,7 +9,7 @@ function NavBar(){
     return (
         <>
         <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect >
-            <Navbar.Brand> <Link to="/"><img src={logo} width="60px" height="60px" alt='logo react'/></Link> STORE </Navbar.Brand>
+            <Navbar.Brand> <Link to="/"><img  id='logo' src={logo} width="180px" alt='logo react'/ ></Link></Navbar.Brand>
 
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-center" style={{fontSize: 25}}>

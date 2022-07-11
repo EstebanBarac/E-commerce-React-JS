@@ -1,0 +1,16 @@
+#emptyCart {
+    display: grid;
+    grid-template-columns: 3fr;
+    text-align: center;
+}
+
+#tituloEmpty {
+    margin-top: 15rem;
+
+}
+
+#botonRegresar {
+    margin-top: 4rem;
+    margin-bottom: 28rem;
+}
+

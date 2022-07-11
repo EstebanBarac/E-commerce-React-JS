@@ -31,11 +31,13 @@ import { createContext, useEffect, useState } from 'react';
         
         const emptyCart = () => {
                 setCart([])
+                localStorage.clear();
         }
         
-        const deleteItem = (id) => {
-                const updatedCart = cart.filter((element) => element.id !== id);
-                setCart(updatedCart);
+        const removeFromCart = (id) => {
+                const newCart = cart.filter(item => item.id !== id);
+                setCart(newCart);
+                window.localStorage.removeItem(id);
         }
         
         const getItemQty = () => {
@@ -51,7 +53,7 @@ import { createContext, useEffect, useState } from 'react';
           }, [cart]);
 
 
-    return  <Provider value={{ cart, isInCart, addItem, deleteItem, emptyCart, getItemQty, getItemPrice }}>{children}</Provider>     
+    return  <Provider value={{ cart, isInCart, addItem, removeFromCart, emptyCart, getItemQty, getItemPrice }}>{children}</Provider>     
 }
 
 export default CartProvider;

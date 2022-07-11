@@ -4,12 +4,13 @@ import {CartContext} from '../../context/CartContext';
 
 
 export default function CartView({ item }) {  
+  const { removeFromCart } = useContext(CartContext)
 
   return (
     <>
         <div className="card rounded-3 mb-4 bg-dark text-white">
             <div className="card-body p-4">
-              <div className="row d-flex justify-content-between align-items-center">
+              <div className="row d-flex justify-content-between align-items-center" id='CartViewDiv'>
                 <div className="col-md-2 col-lg-2 col-xl-2">
                   <img
                     src={item.imgURL1}
@@ -26,6 +27,9 @@ export default function CartView({ item }) {
                         </div>  
                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                   <h5 className="mb-0"> $ {item.precio} (c/dia)</h5>
+                </div>
+                <div className="col">
+                <button className="btn btn-danger" onClick={() => removeFromCart(item.id)}>X</button>
                 </div>
               </div>
             </div>

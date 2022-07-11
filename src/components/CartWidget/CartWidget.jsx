@@ -11,7 +11,10 @@ export default function CartWidget() {
   return (
     <>
         <Link to="/cart"><BsCart3 className="cart_logo"/></Link>
+        {getItemQty() > 0 ? 
         <span className="contador_carrito">{getItemQty()}</span>
-    </>
+        : 
+        null }
+        </>
     )
 }

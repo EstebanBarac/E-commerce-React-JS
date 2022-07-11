@@ -3,6 +3,7 @@ import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom';
 import './ItemDetailContainer.css'
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { ClipLoader } from 'react-spinners';
 
 
 export default function ItemDetailContainer() {
@@ -26,13 +27,18 @@ export default function ItemDetailContainer() {
     });
   }, [idProd]);
 
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    justifyContent: "center",
+    position: "relative",
+  };
+
   
 return (<>
-  <div id='loading'>{loading && 'Loading...'}</div>
-  <div>{error && 'Hubo un error inesperado'}</div>
   <div id='ItemDetailContainer'>
       <div id='Container'>
-        <ItemDetail autos={resultado} />
+      {loading ? <ClipLoader color={'#F8E71C'} loading={loading} cssOverride={override} size={250} /> : <ItemDetail autos={resultado} />}
       </div>
   </div>
   </>
