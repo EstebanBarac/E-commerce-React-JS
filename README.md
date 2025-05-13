@@ -1,6 +1,6 @@
 # E-commerce con React JS 
 
-Proyecto Final Coderhouse React JS 2022
+Proyecto Final React JS 2022
 
 Podes probar este proyecto en el siguiente link:
 
